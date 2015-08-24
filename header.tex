@@ -1,0 +1,77 @@
+\ifreport
+    \documentclass[11pt,reprint,nocopyrightspace,onecolumn]{sigplanconf}
+\else
+    \iffinalformat
+        \ifweb
+            \typeout{>>> web distribution version}
+            \documentclass{sigplanconf}
+            \permission{
+                Copyright \copyright\ ACM, 2015. This is the author's
+                version of the work.  It is posted here by permission
+                of ACM for your personal use.  Not for
+                redistribution.}
+        \else
+            \typeout{>>> final conference version}
+            \documentclass[nocopyrightspace]{sigplanconf}
+        \fi
+    \else
+        \documentclass[preprint,nocopyrightspace]{sigplanconf}
+    \fi
+\fi
+ 
+\usepackage{times,graphicx,color,eso-pic}
+\usepackage{amsmath, amssymb, stmaryrd, utf8math}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	urlcolor=black,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black
+}
+
+\ifshowcomments
+    \usepackage{authcomments}
+\else
+    \usepackage[disabled]{authcomments}
+\fi
+
+\newcommenter{JOHN}{0,1,0}
+\newcommenter{JANE}{0.5,0,1}
+\usepackage{listings}
+  \lstset{language=Caml}
+  \lstset{tabsize=2}
+  \lstset{escapeinside={@}{@}}
+
+\renewcommand{\floatpagefraction}{0.75}
+\renewcommand{\dblfloatpagefraction}{0.75}
+
+\ifreport
+\title{Example Technical Report}
+\else
+\title{Example Paper}
+\fi
+
+
+% Note: the .blinded file affects whether blinding happens
+\ifblinded
+    \authorinfo{Paper \#XXX: Anonymized for review}{}{}
+\else
+    \authorinfo{John Doe \and Jane Roe}
+        {Department of Computer Science\\ Miskatonic University}
+        {\{jdoe,jroe\}@cs.umisk.edu}
+\fi
+\ifreport
+\else
+    \conferenceinfo{PLDI'15}{, June 13--17, 2015, Portland, OR, USA}
+    \CopyrightYear{2015}
+    \crdata{xxx-x-xxxx-xxxx-x/xx/xx}
+\fi
+
+\ifwarning
+\AtBeginDocument{
+ \AddToShipoutPicture*{\put(306,690){\it\color{red}{\fbox{\large Draft---please do not distribute}}}}
+}
+\fi
+

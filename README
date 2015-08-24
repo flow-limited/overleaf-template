@@ -1,0 +1,26 @@
+papers-template 1.1
+-------------------
+
+To build version <version>:
+
+% make <version>
+
+Supported versions include:
+
+    draft
+    local
+    submission
+    final
+    finaldraft
+    web
+    tr
+    trdraft
+
+You will need sigplanconf.cls (not included) in order to build the example
+document successfully. You can get it here:
+
+    http://www.sigplan.org/sites/default/files/sigplanconf.cls
+
+Feedback to Andrew Myers <andru@cs.cornell.edu>
+
+August 2015
