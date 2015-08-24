@@ -1,0 +1,12 @@
+papers-template/README
+papers-template/Makefile
+papers-template/dummy.bib
+papers-template/pldi15.tex
+papers-template/abstract.tex
+papers-template/header.tex
+papers-template/body.tex
+papers-template/make/commondefs
+papers-template/make/commonrules
+papers-template/tex-macros/paperversions.tex
+papers-template/tex-macros/utf8math.sty
+papers-template/tex-macros/authcomments.sty
