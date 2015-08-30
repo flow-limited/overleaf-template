@@ -7,7 +7,8 @@
 DOC = draft
 # Set DOC to one of draft, local, submission, final, report
 
-CONF = pldi15
+# Name of the top-level TeX file sans .tex extension
+CONF = paper
 
 TARGETS = $(DOC).pdf
 
