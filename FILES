@@ -1,7 +1,7 @@
 papers-template/README
 papers-template/Makefile
 papers-template/dummy.bib
-papers-template/pldi15.tex
+papers-template/paper.tex
 papers-template/abstract.tex
 papers-template/header.tex
 papers-template/body.tex
