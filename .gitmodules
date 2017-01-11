@@ -1,0 +1,9 @@
+[submodule "tex-macros"]
+	path = tex-macros
+	url = git@bitbucket.org:owenarden/tex-macros.git
+[submodule "make"]
+	path = make
+	url = git@bitbucket.org:owenarden/make.git
+[submodule "bibtex"]
+	path = bibtex
+	url = git@bitbucket.org:owenarden/bibtex.git
