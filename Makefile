@@ -17,7 +17,7 @@ TEXS = $(DOC).tex abstract.tex header.tex body.tex
 # included figures
 FIGS =
 
-# change to wherever commondefs is located
+# change to wherever APL make directories are located
 MAKEDIR = make
 
 include $(MAKEDIR)/commondefs
@@ -27,14 +27,26 @@ TEXDIR = tex-macros
 
 default: $(TARGETS)
 
-BIBFILE = dummy.bib
+BIBDIR = bibtex
+BIBFILE = $(BIBDIR)/pm-master.bib
+
 
 $(DOC).pdf: $(TEXS) $(FIGS) $(DOC).stamp $(DOC).bbl $(BIBFILE)
 $(DOC).bbl: $(BIBFILE) $(DOC).stamp
 
 $(DOC).tex: $(CONF).tex
 	sed s/DOC/$(DOC)/ < $(CONF).tex > $(DOC).tex
+
    
 LDIRT = local.tex draft.tex submission.tex final.tex finaldraft.tex tr.tex trdraft.tex web.tex
 
 include $(COMMONRULES)
+
+$(MAKEDIR)/*:
+	git submodule update --init
+
+$(BIBDIR)/*:
+	git submodule update --init
+
+$(TEXDIR)/*:
+	git submodule update --init
