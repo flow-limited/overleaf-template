@@ -7,14 +7,32 @@ To build version <version>:
 
 Supported versions include:
 
-    draft
-    local
-    submission
-    final
-    finaldraft
-    web
-    tr
-    trdraft
+  markup: internal draft for paper markup. Does not use submission formatting or show comments.
+  draft: internal draft with standard layout (comments shown, blinded if necessary)
+  local: version for local review (not blinded, warning re distribution)
+  submission: submission for review (blinded if necessary)
+  final: camera-ready (not blinded, no distribution warning)
+  finaldraft: like final, but comments shown.
+  web: version to post on a website. Like final, but with page
+       numbers and possibly information about where paper was published.
+  tr: technical report
+  trdraft: technical report with comments shown
+  blindtr: technical report suitable for anonymous submission as
+      auxiliary material
+
+These control a bunch of conditional tests:
+\ifsinglecolumn
+\ifwidemargins
+\ifwarning
+\ifshowcomments
+\ifblinded
+\ifshowlinenums
+\ifreport
+\ifcopyrightspace
+\ifacknowledgments
+\ifshowpagenumbers
+\iffinalformat
+\ifweb
 
 You will need sigplanconf.cls (not included) in order to build the example
 document successfully. You can get it here:
@@ -24,3 +42,5 @@ document successfully. You can get it here:
 Feedback to Andrew Myers <andru@cs.cornell.edu>
 
 August 2015
+
+updated by Owen Arden April 2017
