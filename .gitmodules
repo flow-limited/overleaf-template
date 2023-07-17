@@ -1,12 +1,12 @@
 [submodule "tex-macros"]
 	path = tex-macros
 	url = git@bitbucket.org:owenarden/tex-macros.git
-	update = merge
+	branch = master
 [submodule "make"]
 	path = make
 	url = git@bitbucket.org:owenarden/make.git
-	update = merge
+	branch = master
 [submodule "bibtex"]
 	path = bibtex
 	url = git@bitbucket.org:owenarden/bibtex.git
-	update = merge
+	branch = master
