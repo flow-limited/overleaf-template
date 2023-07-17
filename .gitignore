@@ -17,3 +17,5 @@ submission.pdf
 sigplanconf.cls
 .*.sw?
 *.stamp*
+*.fls
+*.fdb_latexmk

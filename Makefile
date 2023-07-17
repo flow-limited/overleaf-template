@@ -17,22 +17,29 @@ TEXS = $(DOC).tex abstract.tex header.tex body.tex
 # included figures
 FIGS =
 
+# change to wherever you put paperversions.tex and the .sty files.
+TEXDIR = tex-macros
+
 # change to wherever APL make directories are located
 MAKEDIR = make
 
 include $(MAKEDIR)/commondefs
 
-# change to wherever you put paperversions.tex and the .sty files.
-TEXDIR = tex-macros
+.PHONY: check-and-reinit-submodules
 
-default: $(TARGETS)
+default: $(TARGETS) check-and-reinit-submodules
+
+check-and-reinit-submodules:
+	@if git submodule status | egrep -q '^[-]|^[+]' ; then \
+	        echo "INFO: Need to reinitialize git submodules"; \
+	        git submodule update --init; \
+	fi
 
 BIBDIR = bibtex
 BIBFILE = $(BIBDIR)/pm-master.bib
 
-
-$(DOC).pdf: $(TEXS) $(FIGS) $(DOC).stamp $(DOC).bbl $(BIBFILE)
-$(DOC).bbl: $(BIBFILE) $(DOC).stamp
+$(DOC).pdf: $(TEXS) $(FIGS) $(DOC).bbl $(BIBFILE)
+$(DOC).bbl: $(BIBFILE)
 
 $(DOC).tex: $(CONF).tex
 	sed s/DOC/$(DOC)/ < $(CONF).tex > $(DOC).tex
@@ -41,12 +48,3 @@ $(DOC).tex: $(CONF).tex
 LDIRT = local.tex draft.tex submission.tex final.tex finaldraft.tex tr.tex trdraft.tex web.tex
 
 include $(COMMONRULES)
-
-$(MAKEDIR)/*:
-	git submodule update --init
-
-$(BIBDIR)/*:
-	git submodule update --init
-
-$(TEXDIR)/*:
-	git submodule update --init
