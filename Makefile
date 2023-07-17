@@ -23,11 +23,11 @@ TEXDIR = tex-macros
 # change to wherever APL make directories are located
 MAKEDIR = make
 
-include $(MAKEDIR)/commondefs
-
+PAPERSROOT=.
+-include $(MAKEDIR)/commondefs
 .PHONY: check-and-reinit-submodules
 
-default: $(TARGETS) check-and-reinit-submodules
+default: check-and-reinit-submodules $(TARGETS)
 
 check-and-reinit-submodules:
 	@if git submodule status | egrep -q '^[-]|^[+]' ; then \
@@ -47,4 +47,4 @@ $(DOC).tex: $(CONF).tex
    
 LDIRT = local.tex draft.tex submission.tex final.tex finaldraft.tex tr.tex trdraft.tex web.tex
 
-include $(COMMONRULES)
+-include $(COMMONRULES)
